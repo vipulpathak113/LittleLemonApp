@@ -1,6 +1,7 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export default function App() {
   return (
@@ -10,7 +11,12 @@ export default function App() {
         backgroundColor: "#495E57",
       }}
     >
-      <Header/>
+      <View style={{flex: 1,backgroundColor: '#495E57'}}>
+        <Header />
+      </View>
+      <View>
+        <Footer />
+      </View>
     </View>
   );
 }

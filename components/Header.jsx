@@ -3,8 +3,8 @@ import React from "react";
 
 export default function Header() {
   return (
-    <View style={{ backgroundColor: "#F4CE14" }}>
-      <Text style={{ padding: 20, fontSize: 20, color: "black" }}>
+    <View style={{ flex:0.1,backgroundColor: "#F4CE14" }}>
+      <Text style={{ padding: 20, fontSize: 20, color: "black",textAlign:"center" }}>
         Welcome to Little Lemon
       </Text>
     </View>
