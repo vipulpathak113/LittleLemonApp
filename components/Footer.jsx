@@ -3,9 +3,20 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <View style={{ backgroundColor: "#F4CE14"}}>
-      <Text style={{ padding: 20, fontSize: 20, color: "black" }}>
-       All rights reserved by Little Lemon,2022
+    <View
+      style={{
+        backgroundColor: "#F4CE14",
+        marginBottom: 10,
+      }}
+    >
+      <Text
+        style={{
+          fontSize: 18,
+          color: "black",
+          textAlign: "center",
+        }}
+      >
+        All rights reserved by Little Lemon, 2022{" "}
       </Text>
     </View>
   );
