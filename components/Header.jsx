@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 
 export default function Header() {
@@ -17,3 +17,7 @@ export default function Header() {
     </View>
   );
 }
+
+const headerStyle=StyleSheet.create({
+  container
+})
