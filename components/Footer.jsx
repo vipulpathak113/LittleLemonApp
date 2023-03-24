@@ -13,7 +13,7 @@ export default function Footer() {
 
 const footerStyle = {
   container: {
-    backgroundColor: "#333333,",
+    backgroundColor: "#EE9972,",
     marginBottom: 10,
   },
   footerText: {
