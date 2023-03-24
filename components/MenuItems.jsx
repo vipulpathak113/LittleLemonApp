@@ -40,7 +40,7 @@ export default function MenuItems() {
       <FlatList
         data={menuItemsToDisplay}
         renderItem={renderItem}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.id}     
       />
     </View>
   );
