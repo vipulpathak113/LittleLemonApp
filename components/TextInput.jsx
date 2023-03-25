@@ -1,26 +1,40 @@
-import { Text, ScrollView, StyleSheet, TextInput } from "react-native";
+import {
+  Text,
+  ScrollView,
+  StyleSheet,
+  TextInput,
+  KeyboardAvoidingView,
+  Platform,
+} from "react-native";
 import React, { useState } from "react";
 
 export default function Input() {
   const [firstName, setFirstName] = useState("");
 
-  const handleInputText = () => {};
+  const handleInputText = (text) => {
+    setFirstName(text)
+  };
 
   return (
-    <ScrollView indicatorStyle={"white"}>
+    <KeyboardAvoidingView
+    style={{flex:1}}
+    behavior={Platform.OS === "ios" ? "padding" : "height"}
+  >
+    <ScrollView keyboardDismissMode="on-drag">
       <Text style={welcomeStyle.headingText}>Welcome to Little Lemon</Text>
       <Text style={welcomeStyle.mainText}>
         Little Lemon is a charming neighborhood bistro that serves simple food
         and classic cocktails in a lively but casual environment. We would love
         to hear more about your experience with us!
       </Text>
-      <TextInput
-        style={welcomeStyle.textInput}
-        placeholder="First Name"
-        value={firstName}
-        onChangeText={handleInputText}
-      />
+        <TextInput
+          style={welcomeStyle.textInput}
+          placeholder="First Name"
+          value={firstName}
+          onChangeText={handleInputText}
+        />
     </ScrollView>
+    </KeyboardAvoidingView>
   );
 }
 
@@ -38,12 +52,12 @@ const welcomeStyle = StyleSheet.create({
     color: "#EDEFEE",
     textAlign: "center",
   },
-  textInput:{
+  textInput: {
     height: 40,
     margin: 12,
     borderWidth: 1,
     padding: 10,
     fontSize: 16,
-    backgroundColor: '#EDEFEE',
-  }
+    backgroundColor: "#EDEFEE",
+  },
 });

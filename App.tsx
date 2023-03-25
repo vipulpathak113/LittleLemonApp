@@ -6,13 +6,14 @@ import WelcomeScreen from "./components/WelcomeScreen";
 import MenuItems from "./components/MenuItems";
 import SectionItems from "./components/SectionItems";
 import Input from "./components/TextInput";
+import LoginScreen from "./components/LoginScreen";
 
 export default function App() {
   return (
     <>
       <View style={appStyle.appView}>
         <Header />
-        <Input/>
+        <LoginScreen/>
       </View>
       <View style={appStyle.appFooter}>
         <Footer />
