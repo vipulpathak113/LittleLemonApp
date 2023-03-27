@@ -7,13 +7,14 @@ import MenuItems from "./components/MenuItems";
 import SectionItems from "./components/SectionItems";
 import Input from "./components/TextInput";
 import LoginScreen from "./components/LoginScreen";
+import ImageScreen from "./components/ImageScreen";
 
 export default function App() {
   return (
     <>
       <View style={appStyle.appView}>
         <Header />
-        <LoginScreen/>
+        <ImageScreen/>
       </View>
       <View style={appStyle.appFooter}>
         <Footer />
