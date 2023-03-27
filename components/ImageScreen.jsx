@@ -11,6 +11,7 @@ export default function ImageScreen() {
           resizeMode="cover"
           accessible= {true}
           accessibilityLabel="Little lemon logo"
+                     
         />
         <Text style={imageStyle.headingText}>Little Lemon</Text>
       </View>
