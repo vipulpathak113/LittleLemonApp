@@ -10,9 +10,37 @@ import LoginScreen from "./components/LoginScreen";
 import ImageScreen from "./components/ImageScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
+  const Tab = createBottomTabNavigator();
+
+  const ImageTabbed = () => (
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName;
+
+          if (route.name === "Welcome2") {
+            iconName = focused
+              ? "information-outline"
+              : "information-circle-outline";
+          } else if (route.name === "Menu") {
+            iconName = "list-outline";
+          }
+          return <Ionicons  name={iconName} size={size} color={color} />;
+        },
+        tabBarActiveTintColor: "tomato",
+        tabBarInactiveTintColor: "gray",
+      })}
+    >
+      <Tab.Screen name="Welcome2" component={ImageScreen} />
+      <Tab.Screen name="Menu" component={MenuItems} />
+    </Tab.Navigator>
+  );
+
   return (
     <NavigationContainer>
       <View style={appStyle.appView}>
@@ -21,7 +49,11 @@ export default function App() {
           initialRouteName="Login"
           screenOptions={{ headerTitleAlign: "center" }}
         >
-          <Stack.Screen name="Welcome" component={ImageScreen} />
+          <Stack.Screen
+            name="Welcome"
+            component={ImageTabbed}
+            options={{ headerShown: false }}
+          />
           <Stack.Screen name="Login" component={LoginScreen} />
         </Stack.Navigator>
       </View>
