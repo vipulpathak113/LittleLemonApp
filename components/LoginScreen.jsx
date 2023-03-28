@@ -9,7 +9,7 @@ import {
   Pressable,
 } from "react-native";
 
-export default function LoginScreen({navigation}) {
+export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLogin, setIsLogin] = useState(false);
@@ -25,7 +25,7 @@ export default function LoginScreen({navigation}) {
   const handleLogin = () => {
     console.log("Log in pressed");
     setIsLogin(!isLogin);
-    navigation.navigate('Welcome')
+    navigation.navigate("Welcome");
   };
 
   return (
@@ -35,26 +35,26 @@ export default function LoginScreen({navigation}) {
     >
       <ScrollView>
         <Text style={styles.headerText}>Welcome to Little Lemon</Text>
-          <>
-            <Text style={styles.regularText}>Login to continue </Text>
-            <TextInput
-              style={styles.textInput}
-              onChangeText={handleEmail}
-              placeholder="email"
-              value={email}
-              keyboardType="email-address"
-            />
-            <TextInput
-              style={styles.textInput}
-              onChangeText={handlePassword}
-              placeholder="password"
-              value={password}
-              secureTextEntry={true}
-            />
-            <Pressable style={styles.buttonView} onPress={handleLogin}>
-              <Text style={styles.buttonText}>Log in</Text>
-            </Pressable>
-          </>
+        <>
+          <Text style={styles.regularText}>Login to continue </Text>
+          <TextInput
+            style={styles.textInput}
+            onChangeText={handleEmail}
+            placeholder="email"
+            value={email}
+            keyboardType="email-address"
+          />
+          <TextInput
+            style={styles.textInput}
+            onChangeText={handlePassword}
+            placeholder="password"
+            value={password}
+            secureTextEntry={true}
+          />
+          <Pressable style={styles.buttonView} onPress={handleLogin}>
+            <Text style={styles.buttonText}>Log in</Text>
+          </Pressable>
+        </>
       </ScrollView>
     </KeyboardAvoidingView>
   );
@@ -63,18 +63,19 @@ export default function LoginScreen({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#333333",
   },
   headerText: {
     padding: 40,
     fontSize: 30,
-    color: "black",
+    color: "#EDEFEE",
     textAlign: "center",
   },
   regularText: {
     fontSize: 24,
     padding: 20,
     marginVertical: 8,
-    color: "black",
+    color: "#EDEFEE",
     textAlign: "center",
   },
   textInput: {
@@ -100,8 +101,3 @@ const styles = StyleSheet.create({
     color: "black",
   },
 });
-
-
-            
-
-          

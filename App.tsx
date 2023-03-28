@@ -19,7 +19,7 @@ export default function App() {
         <Header />
         <Stack.Navigator
           initialRouteName="Login"
-          screenOptions={{ headerShown: false }}
+          screenOptions={{ headerTitleAlign: "center" }}
         >
           <Stack.Screen name="Welcome" component={ImageScreen} />
           <Stack.Screen name="Login" component={LoginScreen} />
