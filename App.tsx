@@ -12,16 +12,26 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import "react-native-gesture-handler"; // added for drawer navigation
 
 export default function App() {
   const Stack = createNativeStackNavigator();
   const Tab = createBottomTabNavigator();
+  const Drawer = createDrawerNavigator();
+
+  const ImageDrawer = () => (
+    <Drawer.Navigator useLegacyImplementation>
+      <Drawer.Screen name="Welcome" component={ImageScreen} />
+      <Drawer.Screen name="Section" component={SectionItems} />
+    </Drawer.Navigator>
+  );
 
   const ImageTabbed = () => (
     <Tab.Navigator
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
-          let iconName;
+          let iconName = "";
 
           if (route.name === "Welcome2") {
             iconName = focused
@@ -30,13 +40,13 @@ export default function App() {
           } else if (route.name === "Menu") {
             iconName = "list-outline";
           }
-          return <Ionicons  name={iconName} size={size} color={color} />;
+          return <Ionicons name={iconName} size={size} color={color} />;
         },
         tabBarActiveTintColor: "tomato",
         tabBarInactiveTintColor: "gray",
       })}
     >
-      <Tab.Screen name="Welcome2" component={ImageScreen} />
+      <Tab.Screen name="Welcome2" component={ImageDrawer} />
       <Tab.Screen name="Menu" component={MenuItems} />
     </Tab.Navigator>
   );
