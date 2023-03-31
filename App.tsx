@@ -13,7 +13,9 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { createDrawerNavigator } from "@react-navigation/drawer";
+import Settings from "./screens/Settings";
 import "react-native-gesture-handler"; // added for drawer navigation
+import RNBootSplash from "react-native-bootsplash";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -31,7 +33,7 @@ export default function App() {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
-          let iconName = "";
+          let iconName = "construct-outline";
 
           if (route.name === "Welcome2") {
             iconName = focused
@@ -39,6 +41,9 @@ export default function App() {
               : "information-circle-outline";
           } else if (route.name === "Menu") {
             iconName = "list-outline";
+          }
+          else if (route.name === "Settings") {
+            iconName = "settings-outline";
           }
           return <Ionicons name={iconName} size={size} color={color} />;
         },
@@ -48,11 +53,12 @@ export default function App() {
     >
       <Tab.Screen name="Welcome2" component={ImageDrawer} />
       <Tab.Screen name="Menu" component={MenuItems} />
+      <Tab.Screen name="Settings" component={Settings} />
     </Tab.Navigator>
   );
 
   return (
-    <NavigationContainer>
+    <NavigationContainer onReady={() => RNBootSplash.hide()}>
       <View style={appStyle.appView}>
         <Header />
         <Stack.Navigator
